@@ -1,0 +1,57 @@
+# Copyright (c) 2022 HiSilicon (Shanghai) Technologies CO., LIMITED.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+static_library("Demo") {
+  sources = [
+    "hal_iot_gpio_ex.c",
+    "body_hw.c",
+    "rain.c",
+    "hal_iot_adc.c",
+    "app_demo_aht20.c",
+    "app_demo_mq2.c",
+    "app_demo_multi_sample.c",
+    "app_demo_i2c_oled.c",
+    "app_demo_config.c",
+    "app_demo_gl5537_1.c",
+    "app_demo_environment.c",
+    "dht.c",
+    "cjson_init.c",
+    "iot_log.c",
+    "iot_hmac.c",
+    "iot_main.c",
+    "iot_profile.c",
+    "iot_sta.c",
+    "wifi_softap.c",
+    "wifi_sta_connect.c",
+    "sg90.c",
+    "dc_motor.c",
+    "main.c",
+  ]
+
+  include_dirs = [
+    "./",
+    "//commonlibrary/utils_lite/include",
+    "//kernel/liteos_m/kal/cmsis",
+    "//base/iothardware/peripheral/interfaces/inner_api",
+    "//base/iot_hardware/peripheral/interfaces/kits",
+    "src/device/hisilicon/hispark_pegasus/hi3861_adapter/hals/iot_hardware/wifiiot_lite",
+    "//device/hisilicon/hispark_pegasus/sdk_liteos/third_party/lwip_sack/include/lwip",
+    "//third_party/cJSON",
+    "//device/hisilicon/hispark_pegasus/sdk_liteos/third_party/mbedtls/include/mbedtls",
+    "//foundation/communication/wifi_lite/interfaces/wifiservice",
+    "//device/hisilicon/hispark_pegasus/sdk_liteos/third_party/paho.mqtt.c/include/mqtt",
+    "//device/hisilicon/hispark_pegasus/sdk_liteos/third_party/libcoap/include/coap2",
+  ]
+
+  defines = [ "WITH_LWIP" ]
+}
